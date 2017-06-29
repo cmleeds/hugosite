@@ -8,7 +8,7 @@ title = "About Me"
 
 ## Background
 
-  <img align="left" src="me.jpg" width="30%" height="30%"style="PADDING-RIGHT: 15px"/> I was born and raised in a small community in Illinois. After high school, I attended Truman State University starting in the fall of 2008, shortly after the housing bubble burst. I quickly developed an interest in economics & finance which led me to complete my BS in economics in 2012. 
+  <img align="left" src="/img/me.jpg" width="30%" height="30%"style="PADDING-RIGHT: 15px"/> I was born and raised in a small community in Illinois. After high school, I attended Truman State University starting in the fall of 2008, shortly after the housing bubble burst. I quickly developed an interest in economics & finance which led me to complete my BS in economics in 2012. 
   
   As completion of my undergraduate degree neared, I learned that my skillset was lacking the technical expertise required for adequate consideration in the job market. So, I applied and was accepted to the University of Missouri graduate program in statistics where I would pursue my MA. 
   
