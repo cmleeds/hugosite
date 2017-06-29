@@ -1,0 +1,35 @@
+baseURL = "http://christopherleeds.com"
+languageCode = "en-us"
+DefaultContentLanguage = "en"
+
+title = "Docdock"
+theme = "docdock"
+
+[params]
+noHomeIcon = false # default is false
+noSearch = false # default is false
+showVisitedLinks = false # default is false
+themeVariant = "green" # choose theme variant "green", "gold" , "gray", "blue" (default)
+
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+
+[[menu.shortcuts]]
+pre = "<h3>More</h3>"
+name = "<i class='fa fa-github'></i> My Github Profile"
+identifier = "ds"
+url = "https://github.com/cmleeds"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-bookmark'></i> Hugo Documentation"
+identifier = "hugodoc"
+url = "https://gohugo.io/"
+weight = 20
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-bullhorn'></i> Credits"
+url = "/credits"
+weight = 30
