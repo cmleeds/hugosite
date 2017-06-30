@@ -2,7 +2,7 @@
 date = "2017-06-29T18:06:57-05:00"
 description = "test"
 title = "Suriviving the Titanic"
-draft = "True"
+draft = "False"
 +++
 
 ## Introduction
@@ -37,29 +37,24 @@ test0 = pd.read_csv("test.csv")
 We can see the description of our data with variables notes [here](https://www.kaggle.com/c/titanic/data). 
 
 {{< highlight python >}}
-print(train0.shape,test0.shape)
+print(train0.columns.values)
 
-(891, 12) (418, 11)
+['PassengerId' 'Survived' 'Pclass' 'Name' 'Sex' 'Age' 'SibSp' 'Parch'
+ 'Ticket' 'Fare' 'Cabin' 'Embarked']
 {{< /highlight  >}}
 
 After reviewing the variable descriptions, it seems like the `Ticket` & `Name` variables may not be very useful. 
 
-{{< highlight python >}}
-print(len(train0.Ticket.unique()),len(train0.Name.unique()))
+Other kernels on kaggle seem to suggest that we can extract some useful information from name by taking the title out of the names. A 'title' variable would probably get's it's value from being proxy for sex and social class. But, Let's explore some of our other features before extracting new features. 
 
-681 891
-{{< /highlight >}}
+<img align="left" src="/img/titanicbarplot1.svg" width="50%" height="40%"/>
+<img align="right" src="/img/titanicbarplot2.svg" width="50%" height="40%"/>
 
+<img align="left" src="/img/titanicdensity1.svg" width="50%" height="40%"/>
+<img align="right" src="/img/titanicdensity2.svg" width="50%" height="40%"/>
 
-As expected, each value of `Name` is unique and there is not a whole lot of replication for the each `Ticket` values. But maybe we can extract some meaningful information from the raw values. 
+.
 
-Other kernels on kaggle seem to suggest that we can extract some useful information from name by taking the title out of the names. A 'title' variable would probably get's it's value from being proxy for sex and social class. 
-
-
-<img align="left" src="/img/titanicbarplot1.svg" width="50%" height="50%"/>
-<img align="right" src="/img/titanicbarplot2.svg" width="50%" height="50%"/>
+From the plots above, we can see that sex will be a large contributor to survival rate. `Pclass` & `Embarked` might have some effect. However, there does not seem to be a visible difference between `Age` & `Fare` densities when we plot by survival rate. 
 
 
-
-
- more text after this plot.
