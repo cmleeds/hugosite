@@ -1,0 +1,57 @@
+[
+{
+	"uri": "http://christopherleeds.com/aboutme/",
+	"title": "About Me",
+	"tags": [],
+	"description": "",
+	"content": "  Background I was born and raised in a small community in Illinois. After high school, I attended Truman State University starting in the fall of 2008, shortly after the housing bubble burst. I quickly developed an interest in economics \u0026amp; finance which led me to complete my BS in economics in 2012.\nAs completion of my undergraduate degree neared, I learned that my skillset was lacking the technical expertise required for adequate consideration in the job market. So, I applied and was accepted to the University of Missouri graduate program in statistics where I would pursue my MA.\nIn Columbia, I developed a strong interest in programming and analytics. The MA statistics program gave me the opportunity to begin developing a much needed technical skillset while teaching a few courses a year.\nUpon graduation, I was able to leverage this newfound interest into a career in research and development. I\u0026rsquo;m always looking to meet and work with motivated and curious individuals.\n Philosophy  Evolve \u0026amp; adapt, be a self-driven \u0026amp; life-long learner. Break down complex problems into their simplest components.\n Deploy rapidly, get feedback faster. Document, document, document!    Skills I practice data science in the biotech \u0026amp; agriculture space. I love what I do and am always looking to grow.\nPlease view my resume for more details.\n"
+},
+{
+	"uri": "http://christopherleeds.com/r/",
+	"title": "Data Science with R",
+	"tags": [],
+	"description": "",
+	"content": " Introduction This series of posts will leverage the R language with to perform data wrangling and analysis tasks. My primary experience in data analysis programming is with the R languauge with a workflow revolving around Rstudio functionality combined with plugins for github.\n Current Version R.version.string \u0026quot;R version 3.3.1 (2016-06-21)\u0026quot;  "
+},
+{
+	"uri": "http://christopherleeds.com/aboutme/resume/",
+	"title": "My Resume",
+	"tags": [],
+	"description": "",
+	"content": "\n \n"
+},
+{
+	"uri": "http://christopherleeds.com/_header/",
+	"title": "logo",
+	"tags": [],
+	"description": "",
+	"content": "Christopher Leeds, Data Scientist\n"
+},
+{
+	"uri": "http://christopherleeds.com/python/",
+	"title": "Data Science with Python",
+	"tags": [],
+	"description": "",
+	"content": " Introduction This series of posts will seeks to make show data wrangling, visualization, and analysis with python. I am fairly new to the python programming language and workflow and I look forward to sharing my journey as climb the \u0026lsquo;learning curve\u0026rsquo;.\nOn OSX, I have a homebrew installation of python3 without disturbing our original python 2.7 distribution needed for local apps. My primary workflow will rely on jupyter notebooks so I can organize my code and thoughts.\n Current Version import sys print(sys.version)  3.6.1 (v3.6.1:69c0db5050, Mar 21 2017, 01:21:04) [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]  "
+},
+{
+	"uri": "http://christopherleeds.com/",
+	"title": "Home",
+	"tags": [],
+	"description": "",
+	"content": " Hello! Welcome to my personal website. I built this space as a way to participate and collaborate in the data science community. This site is being rendered with hugo.\nIf you have any questions, then please feel free to contact me.\n To Do build awesome layout with hugo create check list actually post some work (coming soon!)   "
+},
+{
+	"uri": "http://christopherleeds.com/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://christopherleeds.com/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

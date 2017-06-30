@@ -1,9 +1,9 @@
 baseURL = "http://christopherleeds.com"
 languageCode = "en-us"
 DefaultContentLanguage = "en"
-
-title = "Docdock"
+title = "Chris Leeds"
 theme = "docdock"
+publishDir = "_site"
 
 [params]
 noHomeIcon = false # default is false
@@ -17,19 +17,28 @@ home = [ "HTML", "RSS", "JSON"]
 
 
 [[menu.shortcuts]]
-pre = "<h3>More</h3>"
-name = "<i class='fa fa-github'></i> My Github Profile"
+pre = "<h3>Links</h3>"
+name = "<i class='fa fa-github'></i> Github"
 identifier = "ds"
 url = "https://github.com/cmleeds"
-weight = 10
+weight = 1
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-bookmark'></i> Hugo Documentation"
+name = "<i class='fa fa-linkedin'></i> Linkedin"
+identifier = "linkedin"
+url = "https://www.linkedin.com/in/christopher-leeds-a4392a30/"
+weight = 2
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-envelope'></i> E-mail"
+identifier = "email"
+url = "mailto:chris@christopherleeds.com"
+weight = 3
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-file-text'></i> Hugo Documentation"
 identifier = "hugodoc"
 url = "https://gohugo.io/"
-weight = 20
+weight = 4
 
-[[menu.shortcuts]]
-name = "<i class='fa fa-bullhorn'></i> Credits"
-url = "/credits"
-weight = 30
+
