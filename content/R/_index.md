@@ -15,9 +15,8 @@ This series of posts will leverage the [R](https://www.r-project.org/) language 
 
 {{< highlight R >}}
 R.version.string
-
-"R version 3.3.1 (2016-06-21)"
 {{< /highlight >}}
 
-
-
+{{< highlight R >}}
+"R version 3.3.1 (2016-06-21)"
+{{< /highlight >}}
