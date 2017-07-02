@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.23" />
+    <meta name="description" content="test">
+
+
+    <title>Surviving the Titanic :: Chris Leeds</title>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/featherlight.min.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-2.x.min.js"></script>
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+
+
+    <link rel="stylesheet" href="/css/ascetic.css">
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    
+    <link href="/css/theme-blue.css" rel="stylesheet">
+
+    
+
+    
+
+  </head>
+  <body class="" data-url="/python/titanic/">
+    <nav id="sidebar" class="">
+  <div id="header-wrapper">
+    <div id="header">
+       
+	<p><font size="5"><strong>Christopher Leeds<br> Data Scientist</strong></font></p>
+ 
+
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script type="text/javascript" src="/js/lunr.min.js"></script>
+<script type="text/javascript" src="/js/horsey.js"></script>
+<script type="text/javascript">
+    var baseurl = "http:\/\/christopherleeds.com";
+</script>
+<script type="text/javascript" src="/js/search.js"></script>
+
+    
+  </div>
+
+
+
+
+
+<div class="highlightable">
+    <ul class="topics">
+        
+        
+            <li data-nav-id="/" class="dd-item">
+            <a href="/"><i class="fa fa-fw fa-home"></i></a>
+            </li>
+        
+
+        
+
+
+
+
+<li data-nav-id="/aboutme/" class="dd-item 
+
+
+
+">
+  <a href="/aboutme/">
+    <span>About Me</span>
+
+    
+    <i class="fa fa-angle-right fa-lg category-icon"></i>
+    
+    
+    
+  </a>
+    <ul>
+        
+         
+          <li data-nav-id="/aboutme/resume/" class="dd-item
+         
+          ">
+            <a href="/aboutme/resume/">
+            <span>My Resume</span> 
+            
+
+            </a></li>
+         
+        
+        
+
+
+
+
+    </ul>
+</li>
+
+
+<li data-nav-id="/r/" class="dd-item 
+
+
+
+">
+  <a href="/r/">
+    <span>Data Science with R</span>
+
+    
+    <i class="fa fa-angle-right fa-lg category-icon"></i>
+    
+    
+    
+  </a>
+    <ul>
+        
+        
+
+
+
+
+    </ul>
+</li>
+
+
+<li data-nav-id="/python/" class="dd-item 
+parent
+
+
+">
+  <a href="/python/">
+    <span>Data Science with Python</span>
+
+    
+    <i class="fa fa-angle-down fa-lg category-icon"></i>
+    
+    
+    
+  </a>
+    <ul>
+        
+         
+          <li data-nav-id="/python/titanic/" class="dd-item
+         active
+          ">
+            <a href="/python/titanic/">
+            <span>Surviving the Titanic</span> 
+            
+
+            </a></li>
+         
+        
+        
+
+
+
+
+    </ul>
+</li>
+
+
+
+        
+        <section id="shortcuts">
+            
+                <li class="" role="">
+                    <h3>Links</h3>
+                    <a href="https://github.com/cmleeds"><i class='fa fa-github'></i> Github</a>
+                    
+                </li>
+            
+                <li class="" role="">
+                    
+                    <a href="https://www.linkedin.com/in/christopher-leeds-a4392a30/"><i class='fa fa-linkedin'></i> Linkedin</a>
+                    
+                </li>
+            
+                <li class="" role="">
+                    
+                    <a href="mailto:chris@christopherleeds.com"><i class='fa fa-envelope'></i> E-mail</a>
+                    
+                </li>
+            
+                <li class="" role="">
+                    
+                    <a href="https://gohugo.io/"><i class='fa fa-file-text'></i> Hugo Documentation</a>
+                    
+                </li>
+            
+        </section>    
+        
+        
+
+        
+    </ul>
+    
+     
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+        
+          <div id="top-bar">
+            
+
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                  </a>
+                </span>
+                <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                <span class="links">
+                
+
+
+
+
+
+
+
+ <a href='/'>Home</a> > <a href='/python/'>Data Science with Python</a> > Surviving the Titanic
+
+
+
+
+
+
+                </span>
+            </div>
+            <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#libraries">Libraries</a></li>
+<li><a href="#import-data">Import Data</a></li>
+<li><a href="#exploring-our-data">Exploring our Data</a></li>
+<li><a href="#feature-engineering">Feature Engineering</a></li>
+<li><a href="#modeling">Modeling</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            <h1>Surviving the Titanic</h1>
+          
+
+
+
+
+
+
+<hr>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>One of the most popular data science competitions on <a href="https://www.kaggle.com/">kaggle</a> asks data scientists to use passenger information from the RMS <a href="https://www.kaggle.com/c/titanic">titanic</a> in order to predict survival. A description of the data can be found <a href="https://www.kaggle.com/c/titanic/data">here</a>.</p>
+
+<p>We need to consider models built for binary prediction. We want to be able to classify any individual passenger as 1=&lsquo;Survived&rsquo; or 0=&lsquo;Not Survived&rsquo; based on the other features in the dataset. Obviously, predicting survival rate on the titanic provides no practical application for future use. But, models can also provide information on the importance of the inputs(features). In this way, we can assess the relative contribution of any individual characteristic in predicting survival.</p>
+
+<hr>
+
+<h2 id="libraries">Libraries</h2>
+
+<p>As always, Let&rsquo;s start be bringing in our favorite libraries required for data wrangling &amp; analysis. We need pandas and numpy for wrangling and processing, seaborn &amp; matplotlib for plotting, &amp; sklearn for analytics.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">import</span> <span style="color: #f8f8f2">pandas</span> <span style="color: #f92672">as</span> <span style="color: #f8f8f2">pd</span>
+<span style="color: #f92672">import</span> <span style="color: #f8f8f2">numpy</span> <span style="color: #f92672">as</span> <span style="color: #f8f8f2">np</span>
+<span style="color: #f92672">import</span> <span style="color: #f8f8f2">seaborn</span> <span style="color: #f92672">as</span> <span style="color: #f8f8f2">sns</span>
+<span style="color: #f92672">import</span> <span style="color: #f8f8f2">matplotlib</span> <span style="color: #f92672">as</span> <span style="color: #f8f8f2">plt</span>
+
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.linear_model</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">LogisticRegression</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.svm</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">SVC,</span> <span style="color: #f8f8f2">LinearSVC</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.ensemble</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">RandomForestClassifier</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.neighbors</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">KNeighborsClassifier</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.naive_bayes</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">GaussianNB</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.linear_model</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">Perceptron</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.linear_model</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">SGDClassifier</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">sklearn.tree</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">DecisionTreeClassifier</span>
+</pre></div>
+
+
+<hr>
+
+<h2 id="import-data">Import Data</h2>
+
+<p>we can use the pandas <code>read_csv</code> function to read in our datasets for processing.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">train0</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read_csv(</span><span style="color: #e6db74">&quot;train.csv&quot;</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">test0</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read_csv(</span><span style="color: #e6db74">&quot;test.csv&quot;</span><span style="color: #f8f8f2">)</span>
+</pre></div>
+
+
+<p>I find it best to keep tabs on each <em>version</em> of our dataset through process and prevent overwriting. So, we start at version &lsquo;0&rsquo; for each dataset, <code>test0</code> &amp; <code>train0</code>.</p>
+
+<hr>
+
+<h2 id="exploring-our-data">Exploring our Data</h2>
+
+<blockquote>
+<p>&ldquo;You can see a lot just by observing.&rdquo; - Yogi Berra</p>
+</blockquote>
+
+<p>We can see the description of our data with variables notes <a href="https://www.kaggle.com/c/titanic/data">here</a>. Our training and testing datasets contain passenger level data where we want to predict on <code>Survived</code> where 1 = <em>Survived</em> and 0 = <em>Did not Survive</em>.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">train0</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">info()</span>
+</pre></div>
+
+
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 12 columns):
+PassengerId    891 non-null int64
+Survived       891 non-null int64
+Pclass         891 non-null int64
+Name           891 non-null object
+Sex            891 non-null object
+Age            714 non-null float64
+SibSp          891 non-null int64
+Parch          891 non-null int64
+Ticket         891 non-null object
+Fare           891 non-null float64
+Cabin          204 non-null object
+Embarked       889 non-null object
+dtypes: float64(2), int64(5), object(5)
+memory usage: 83.6+ KB
+</code></pre>
+
+<p>We have missing data in Age, Cabin &amp; Embarked. Also, we&rsquo;ll need to convert each of of our character variables to factors before modeling fitting with <code>sklearn</code>.</p>
+
+<p>After reviewing the variable descriptions, it seems like the <code>Ticket</code> &amp; <code>Name</code> variables may not be very useful. Other kernels on kaggle seem to suggest that we can extract some useful information from name by taking the title out of the names. A &lsquo;title&rsquo; variable would probably get&rsquo;s it&rsquo;s value from being proxy for sex and social class.</p>
+
+<p><strong>But</strong>, Let&rsquo;s explore some of our other features before extracting new features. Below are some basic plots to explore the relationships between gender, ticket class, port of embarktion, age, &amp; far against survival rate.</p>
+
+<p><img align="left" src="/img/titanicbarplot1.svg" width="50%" height="40%"/>
+<img align="right" src="/img/titanicbarplot2.svg" width="50%" height="40%"/></p>
+
+<p><img align="left" src="/img/titanicdensity1.svg" width="50%" height="40%"/>
+<img align="right" src="/img/titanicdensity2.svg" width="50%" height="40%"/></p>
+
+<p>.</p>
+
+<p>From the plots above, we can see that sex will be a large contributor to survival rate. <code>Pclass</code> &amp; <code>Embarked</code> might have some effect. However, there does not seem to be a visible difference between <code>Age</code> &amp; <code>Fare</code> densities when we plot by survival rate.</p>
+
+<hr>
+
+<h2 id="feature-engineering">Feature Engineering</h2>
+
+<p>Let&rsquo;s move ahead and extract some meaning from our <code>Name</code> &amp; <code>Cabin</code> variables. First, let&rsquo;s combine our test and training datasets. We should do this to ensure we are processing the data in the same way.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">datalist</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[train0,test0]</span>
+<span style="color: #f8f8f2">alldata</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">concat(datalist)</span>
+<span style="color: #f8f8f2">alldata</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">shape</span>
+</pre></div>
+
+
+<pre><code>(1309, 12)
+</code></pre>
+
+<p>We can utilize the <code>str.extract</code> functionality from the <code>pandas</code> library to extract the first occurrence of a regular expression pattern. This reduces the time needed to manually inspect and extract each title from the <code>Name</code> feature.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">alldata[</span><span style="color: #e6db74">&#39;title&#39;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">alldata</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">Name</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">str</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">extract(</span><span style="color: #e6db74">&#39; ([A-Za-z]+)\.&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">expand</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">False)</span>
+<span style="color: #f8f8f2">alldata</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">groupby(</span><span style="color: #e6db74">&#39;title&#39;</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">size()</span>
+</pre></div>
+
+
+<pre><code>title
+Capt          1
+Col           4
+Countess      1
+Don           1
+Dona          1
+Dr            8
+Jonkheer      1
+Lady          1
+Major         2
+Master       61
+Miss        260
+Mlle          2
+Mme           1
+Mr          757
+Mrs         197
+Ms            2
+Rev           8
+Sir           1
+dtype: int64
+</code></pre>
+
+<p>This will help us gather all <em>titles</em> that occur before the &lsquo;.&rsquo; in each Name.
+alter rare titles to &lsquo;Rare&rsquo; value and remove unneeded columns.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">alldata[</span><span style="color: #e6db74">&#39;title&#39;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">alldata[</span><span style="color: #e6db74">&#39;title&#39;</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">replace([</span><span style="color: #e6db74">&#39;Mme&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Lady&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Countess&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Capt&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Col&#39;</span>\
+<span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Don&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Dr&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Major&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Rev&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Sir&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Jonkheer&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&#39;Dona&#39;</span><span style="color: #f8f8f2">],</span><span style="color: #e6db74">&#39;Rare&#39;</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">alldata1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">alldata</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">drop([</span><span style="color: #e6db74">&quot;Ticket&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;Name&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;Cabin&quot;</span><span style="color: #f8f8f2">],</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,inplace</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">True)</span>
+</pre></div>
+
+
+<hr>
+
+<h2 id="modeling">Modeling</h2>
+
+<p>Let&rsquo;s split our data back apart for training and testing now that cleaning and feature engineering are complete. Then we can start building our models.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">train1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">alldata[alldata</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">Survived</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">isnull()]</span>
+<span style="color: #f8f8f2">test1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">alldata[</span><span style="color: #f92672">~</span><span style="color: #f8f8f2">alldata</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">Survived</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">isnull()]</span>
+</pre></div>
+
+
+<p>Let&rsquo;s try a random forest model first from the <code>sklearn.ensemble</code> module.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">random_forest</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">RandomForestClassifier(n_estimators</span><span style="color: #f92672">=</span><span style="color: #ae81ff">100</span><span style="color: #f8f8f2">,max_features</span><span style="color: #f92672">=</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span>
+</pre></div>
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+      </div>
+    </div>
+
+    
+ 
+    
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+                
+                    
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+                
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+                
+            
+        
+                    
+                
+                    
+            
+            
+                
+                    
+                
+                
+                
+            
+        
+                    
+                
+                    
+            
+            
+                
+                    
+                    
+                
+                
+                
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+                
+            
+        
+                    
+                
+            
+        
+        
+        
+
+
+        
+            <a class="nav nav-prev" href="/python/" title="Data Science with Python"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="/aboutme/" title="About Me" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/featherlight.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/learn.js"></script>
+    <script src="/js/hugo-learn.js"></script>
+
+    
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    
+
+    
+
+  </body>
+</html>
+

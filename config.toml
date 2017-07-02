@@ -9,7 +9,7 @@ publishDir = "_site"
 noHomeIcon = false # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false
-themeVariant = "green" # choose theme variant "green", "gold" , "gray", "blue" (default)
+themeVariant = "blue" # choose theme variant "green", "gold" , "gray", "blue" (default)
 
 
 [outputs]
@@ -40,5 +40,3 @@ name = "<i class='fa fa-file-text'></i> Hugo Documentation"
 identifier = "hugodoc"
 url = "https://gohugo.io/"
 weight = 4
-
-

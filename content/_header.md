@@ -6,4 +6,4 @@ title = "logo"
 
 
 
-<span style="color:#ba2a45">**Christopher Leeds, Data Scientist**</span>
+<font size="5">**Christopher Leeds**</font>

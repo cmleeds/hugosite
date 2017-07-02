@@ -17,6 +17,6 @@ This series of posts will leverage the [R](https://www.r-project.org/) language 
 R.version.string
 {{< /highlight >}}
 
-{{< highlight R >}}
+```noClass
 "R version 3.3.1 (2016-06-21)"
-{{< /highlight >}}
+```

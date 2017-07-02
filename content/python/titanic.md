@@ -1,17 +1,22 @@
 +++
 date = "2017-06-29T18:06:57-05:00"
 description = "test"
-title = "Suriviving the Titanic"
-draft = "False"
+title = "Surviving the Titanic"
+draft = "True"
 +++
 
+<hr>
 ## Introduction
 
-One of the most popular data science 'competitions' on [kaggle](https://www.kaggle.com/) asks data scientists to use passenger information from the RMS [titanic](https://www.kaggle.com/c/titanic) in order to predict survival rate. A description of the data can be found [here](https://www.kaggle.com/c/titanic/data).
+One of the most popular data science competitions on [kaggle](https://www.kaggle.com/) asks data scientists to use passenger information from the RMS [titanic](https://www.kaggle.com/c/titanic) in order to predict survival. A description of the data can be found [here](https://www.kaggle.com/c/titanic/data).
 
+We need to consider models built for binary prediction. We want to be able to classify any individual passenger as 1='Survived' or 0='Not Survived' based on the other features in the dataset. Obviously, predicting survival rate on the titanic provides no practical application for future use. But, models can also provide information on the importance of the inputs(features). In this way, we can assess the relative contribution of any individual characteristic in predicting survival.
+
+<hr>
 ## Libraries
 
-As always, Let's start be bringing in our favorite libraries required for analysis.
+
+As always, Let's start be bringing in our favorite libraries required for data wrangling & analysis. We need pandas and numpy for wrangling and processing, seaborn & matplotlib for plotting, & sklearn for analytics.
 
 {{< highlight python >}}
 
@@ -31,15 +36,19 @@ from sklearn.tree import DecisionTreeClassifier
 
 {{< /highlight >}}
 
+<hr>
 ## Import Data
 
-`pandas` allows us to easily bring our data in and take a look at what is inside of it.  
+we can use the pandas `read_csv` function to read in our datasets for processing.
 
 {{< highlight python >}}
 train0 = pd.read_csv("train.csv")
 test0 = pd.read_csv("test.csv")
 {{< /highlight >}}
 
+I find it best to keep tabs on each *version* of our dataset through process and prevent overwriting. So, we start at version '0' for each dataset, `test0` & `train0`.
+
+<hr>
 ## Exploring our Data
 
 > "You can see a lot just by observing." - Yogi Berra
@@ -71,11 +80,11 @@ dtypes: float64(2), int64(5), object(5)
 memory usage: 83.6+ KB
 ```
 
-After reviewing the variable descriptions, it seems like the `Ticket` & `Name` variables may not be very useful.
+We have missing data in Age, Cabin & Embarked. Also, we'll need to convert each of of our character variables to factors before modeling fitting with `sklearn`.
 
-Other kernels on kaggle seem to suggest that we can extract some useful information from name by taking the title out of the names. A 'title' variable would probably get's it's value from being proxy for sex and social class.
+After reviewing the variable descriptions, it seems like the `Ticket` & `Name` variables may not be very useful. Other kernels on kaggle seem to suggest that we can extract some useful information from name by taking the title out of the names. A 'title' variable would probably get's it's value from being proxy for sex and social class.
 
-**But**, Let's explore some of our other features before extracting new features.
+**But**, Let's explore some of our other features before extracting new features. Below are some basic plots to explore the relationships between gender, ticket class, port of embarktion, age, & far against survival rate.
 
 <img align="left" src="/img/titanicbarplot1.svg" width="50%" height="40%"/>
 <img align="right" src="/img/titanicbarplot2.svg" width="50%" height="40%"/>
@@ -87,9 +96,10 @@ Other kernels on kaggle seem to suggest that we can extract some useful informat
 
 From the plots above, we can see that sex will be a large contributor to survival rate. `Pclass` & `Embarked` might have some effect. However, there does not seem to be a visible difference between `Age` & `Fare` densities when we plot by survival rate.
 
+<hr>
 ## Feature Engineering
 
-Let's move ahead and extract some meaning from our `Name` & `Cabin` variables. First, let's combine our test and training data to ensure that we process them in the same way.
+Let's move ahead and extract some meaning from our `Name` & `Cabin` variables. First, let's combine our test and training datasets. We should do this to ensure we are processing the data in the same way.
 
 {{< highlight python >}}
 datalist = [train0,test0]
@@ -101,16 +111,15 @@ alldata.shape
 (1309, 12)
 ```
 
-
-While each name is a unique string of letters, with the `str.extract` functionality from the `pandas` library, we can extract the first occurance of a regular expression pattern which will greatly reduce the manual that would otherwise be needed.
+We can utilize the `str.extract` functionality from the `pandas` library to extract the first occurrence of a regular expression pattern. This reduces the time needed to manually inspect and extract each title from the `Name` feature.
 
 {{< highlight python >}}
-alldata['Salutation'] = alldata.Name.str.extract(' ([A-Za-z]+)\.', expand=False)
-alldata.groupby('Salutation').size()
+alldata['title'] = alldata.Name.str.extract(' ([A-Za-z]+)\.', expand=False)
+alldata.groupby('title').size()
 {{< /highlight  >}}
 
 ```
-Salutation
+title
 Capt          1
 Col           4
 Countess      1
@@ -136,13 +145,23 @@ This will help us gather all *titles* that occur before the '.' in each Name.
 alter rare titles to 'Rare' value and remove unneeded columns.
 
 {{< highlight python >}}
-alldata['title'] = alldata['title'].replace(['Lady','Countess','Capt','Col'\
+alldata['title'] = alldata['title'].replace(['Mme','Lady','Countess','Capt','Col'\
 ,'Don','Dr','Major','Rev','Sir','Jonkheer','Dona'],'Rare')
-alldata.drop(["Ticket","Name","Cabin"],1,inplace=True)
+alldata1 = alldata.drop(["Ticket","Name","Cabin"],1,inplace=True)
 {{< /highlight  >}}
 
+<hr>
+## Modeling
+
+Let's split our data back apart for training and testing now that cleaning and feature engineering are complete. Then we can start building our models.
 
 {{< highlight python >}}
 train1 = alldata[alldata.Survived.isnull()]
 test1 = alldata[~alldata.Survived.isnull()]
+{{< /highlight  >}}
+
+Let's try a random forest model first from the `sklearn.ensemble` module.
+
+{{< highlight python >}}
+random_forest = RandomForestClassifier(n_estimators=100,max_features=3)
 {{< /highlight  >}}

@@ -4,14 +4,14 @@
 	"title": "About Me",
 	"tags": [],
 	"description": "",
-	"content": "  Background I was born and raised in a small community in Illinois. After high school, I attended Truman State University starting in the fall of 2008, shortly after the housing bubble burst. I quickly developed an interest in economics \u0026amp; finance which led me to complete my BS in economics in 2012.\nAs completion of my undergraduate degree neared, I learned that my skillset was lacking the technical expertise required for adequate consideration in the job market. So, I applied and was accepted to the University of Missouri graduate program in statistics where I would pursue my MA.\nIn Columbia, I developed a strong interest in programming and analytics. The MA statistics program gave me the opportunity to begin developing a much needed technical skillset while teaching a few courses a year.\nUpon graduation, I was able to leverage this newfound interest into a career in research and development. I\u0026rsquo;m always looking to meet and work with motivated and curious individuals.\n Philosophy  Evolve \u0026amp; adapt, be a self-driven \u0026amp; life-long learner. Break down complex problems into their simplest components.\n Deploy rapidly, get feedback faster. Document, document, document!    Skills I practice data science in the biotech \u0026amp; agriculture space. I love what I do and am always looking to grow.\nPlease view my resume for more details.\n"
+	"content": "  Background I was born and raised in a small community in Illinois. After high school, I attended Truman State University starting in the fall of 2008, shortly after the housing bubble burst. I quickly developed an interest in economics \u0026amp; finance which led me to complete my BS in economics in 2012.\nAs completion of my undergraduate degree neared, I learned that my skillset was lacking the technical expertise required for adequate consideration in the job market. So, I applied and was accepted to the University of Missouri graduate program in statistics where I would pursue my MA.\nIn Columbia, I developed a strong interest in programming and analytics. The MA statistics program gave me the opportunity to begin developing a much needed technical skillset while teaching a few courses a year.\nUpon graduation, I was able to leverage this newfound interest into a career in research and development. I\u0026rsquo;m always looking to meet and work with motivated and curious individuals.\n Philosophy  Evolve \u0026amp; adapt, be a self-driven \u0026amp; life-long learner. Break down complex problems into their simplest components.\n Deploy rapidly, get feedback faster. Document, document, document!   Skills I practice data science in the biotech \u0026amp; agriculture space. I love what I do and am always looking to grow.\nPlease view my resume for more details.\n"
 },
 {
 	"uri": "http://christopherleeds.com/r/",
 	"title": "Data Science with R",
 	"tags": [],
 	"description": "",
-	"content": " Introduction This series of posts will leverage the R language with to perform data wrangling and analysis tasks. My primary experience in data analysis programming is with the R languauge with a workflow revolving around Rstudio functionality combined with plugins for github.\n Current Version R.version.string \u0026quot;R version 3.3.1 (2016-06-21)\u0026quot;  "
+	"content": " Introduction This series of posts will leverage the R language with to perform data wrangling and analysis tasks. My primary experience in data analysis programming is with the R languauge with a workflow revolving around Rstudio functionality combined with plugins for github.\n Current Version R.version.string  \u0026quot;R version 3.3.1 (2016-06-21)\u0026quot;  "
 },
 {
 	"uri": "http://christopherleeds.com/aboutme/resume/",
@@ -25,7 +25,7 @@
 	"title": "logo",
 	"tags": [],
 	"description": "",
-	"content": "Christopher Leeds, Data Scientist\n"
+	"content": "Christopher Leeds\n"
 },
 {
 	"uri": "http://christopherleeds.com/python/",
@@ -39,7 +39,7 @@
 	"title": "Home",
 	"tags": [],
 	"description": "",
-	"content": " Hello! Welcome to my personal website. I built this space as a way to participate and collaborate in the data science community. This site is being rendered with hugo.\nIf you have any questions, then please feel free to contact me.\n To Do build awesome layout with hugo create check list actually post some work (coming soon!)   "
+	"content": " Hello! Welcome to my personal website. I built this space as a way to participate and collaborate in the data science community. This site is being rendered with hugo. Hugo is a great tool to generate static websites quickly.\nIf you have any questions, please feel free to contact me.\n What you\u0026rsquo;ll find Data science is a very broad space and it can be difficult to assess where an individual\u0026rsquo;s strengths lie. Each tool in your toolkit (e.g. git, R, python, plotly, shiny, dash, domino, jenkins, etc.) can become a universe unto itself. So, it becomes important to ask what you can do with these tools.\nWhat can you do with R? How can you deploy python apps/modules? These questions are ultimately more meaningful. And by making this site, I hope to answer that for myself, and encourage others to do the same.\n What is data science?  \u0026ldquo;A data scientist is someone who knows more statistics than a computer scientist and more computer science than a statistician.\u0026rdquo;\n Data science is a large space with people of exceedingly disparate backgrounds. The Data Science Venn Diagram is the most common answer one might here to the question: what is a data science?\nThis image was retrieved from here and is Creative Commons licensed as Attribution-NonCommercial.\nQuite often, I come across individuals who identify as data scientists who have built entirely different workflows on entirely different objectives. My own journey has taken me from a primarily SAS based workflow with classical statistical models and analysis to a workflow based in R with an emphasis on cloud computing tools to automate data wrangling \u0026amp; analysis.\n To Do build layout with hugo create check list post first python entry post first R entry  "
 },
 {
 	"uri": "http://christopherleeds.com/categories/",
