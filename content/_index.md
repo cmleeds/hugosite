@@ -9,10 +9,9 @@ author = ""
 
 ## Hello!
 
-Welcome to my personal website. I built this space as a way to participate and collaborate in the data science community. This site is being rendered with [hugo](https://gohugo.io/). Hugo is a great tool to generate static websites quickly.
+Welcome to my personal website. I built this space as a way to participate and collaborate in the data science community. This site is being rendered with [hugo](https://gohugo.io/), a great tool to generate static websites quickly.
 
 If you have any questions, please feel free to [contact me](mailto:chris@christopherleeds.com).
-
 
 <hr>
 ## What you'll find
@@ -26,13 +25,13 @@ What can **you** do with R? How can **you** deploy python apps/modules? These qu
 
 > "A data scientist is someone who knows more statistics than a computer scientist and more computer science than a statistician."
 
-Data science is a large space with people of exceedingly disparate backgrounds. The *Data Science Venn Diagram* is the most common answer one might here to the question: what is a data science?
+Data science is a large space with people of exceedingly disparate backgrounds. The *Data Science Venn Diagram* is the most common answer one might hear to the question: what is data science?
 
 ![](/img/Data_Science_VD.png)
 
 <font size="2">*This image was retrieved from [here](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) and is Creative Commons licensed as [Attribution-NonCommercial](https://creativecommons.org/licenses/by-nc/3.0/legalcode).*</font>
 
-Quite often, I come across individuals who identify as data scientists who have built entirely different workflows on entirely different objectives. My own journey has taken me from a primarily SAS based workflow with classical statistical models and analysis to a workflow based in R with an emphasis on cloud computing tools to automate data wrangling & analysis.
+Quite often, I come across data scientists who have built entirely different workflows based on entirely different objectives. My own journey has taken me from a primarily SAS-based workflow with classical statistical models to a workflow based in R with an emphasis on cloud computing tools to automate data wrangling & analysis.
 
 
 <hr>
@@ -41,5 +40,9 @@ Quite often, I come across individuals who identify as data scientists who have 
 
   - [x] build layout with [hugo](https://gohugo.io/)
   - [x] create check list
-  - [ ] post first python entry
+  - [x] post first python entry
   - [ ] post first R entry
+  - [x] post first machine learning entry
+  - [ ] post first bayesian analysis entry
+  - [ ] post first spatial analysis entry
+  - [ ] post first dashboard creation entry

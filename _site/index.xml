@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Surviving the Titanic</title>
+      <link>http://christopherleeds.com/python/titanic/</link>
+      <pubDate>Thu, 29 Jun 2017 18:06:57 -0500</pubDate>
+      
+      <guid>http://christopherleeds.com/python/titanic/</guid>
+      <description>Introduction One of the most popular data science competitions on kaggle asks users to predict survival from passenger information from the RMS titanic. A description of the data can be found here.
+We want to be able to classify any individual passenger as 1=&amp;lsquo;Survived&amp;rsquo; or 0=&amp;lsquo;Not Survived&amp;rsquo; based on the other features in the dataset. Obviously, predicting survival rate on the titanic provides no practical application for future use.</description>
+    </item>
+    
+    <item>
       <title>My Resume</title>
       <link>http://christopherleeds.com/aboutme/resume/</link>
       <pubDate>Wed, 28 Jun 2017 22:37:41 -0500</pubDate>

@@ -6,9 +6,9 @@ title = "My Resume"
 +++
 
 <br>
-<object data="/img/resumeCLEED.pdf"
+<object data="/img/resumecleed.pdf"
         type="application/pdf"
-        width="100%" 
+        width="100%"
         height="1300px">
-    <embed src="resumeCLEED.pdf"></embed>
+    <embed src="resumecleed.pdf"></embed>
 </object>
