@@ -2,3 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# ignore these files
+me.jpg
+resumecleed.pdf
+resumeCLEED.pdf
