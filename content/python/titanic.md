@@ -245,11 +245,11 @@ searchresults = grdsearch.fit(X,Y)
 once the grid search is complete, we can inspect the attributes of our fit object `searchresults` for the optimal parameters for prediction.
 
 
-{{highlight console}}
-Best score acheived is: 0.842873176207
+{{< highlight console >}}
+Best score acheived is: 0.826038159371
 Best grid parameters for this score are:
-{'learning_rate': 0.1, 'max_depth': 3, 'max_features': 3, 'n_estimators': 300}
-{{/ highlight }}
+{'bootstrap': False, 'criterion': 'entropy', 'max_depth': 5, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 100}
+{{< /highlight  >}}
 
 Since we are utilizing 3-fold cross-validation, we can avoid selecting the best model based on the training error. This is a useful measure to avoid over-fitting.
 
@@ -259,13 +259,17 @@ Since we are utilizing 3-fold cross-validation, we can avoid selecting the best 
 Now that we have our parameters tuned from the grid search, we can extract predictions from our model fit and output the results for submission to kaggle. We need to do this in order to get the our test error rate.
 
 {{< highlight python >}}
-gbc = GradientBoostingClassifier(n_estimators=300,
-                                 learning_rate=0.1,
-                                 max_depth=3,
-                                 max_features=3)
+rfmodel = RandomForestClassifier(bootstrap = True,
+                                 criterion = "entropy",
+                                 max_depth = 5,
+                                 max_features = 'sqrt',
+                                 min_samples_leaf = 2,
+                                 min_samples_split = 2,
+                                 n_estimators = 100)
 
-model = gbc.fit(X,Y)
-survival_prediction = model.predict(testX)
+# generate predictions
+model = rfmodel.fit(X,Y)
+survival_prediction = model.predict(testX).astype('int').astype('str')
 survival_id = test1['PassengerId']
 {{< /highlight  >}}
 
@@ -278,7 +282,7 @@ Finally, we can use the `to_csv` functionality to output or predictions on the t
 {{< highlight python >}}
 submitFile = pd.DataFrame({ 'PassengerId': survival_id,
                             'Survived': survival_prediction })
-submitFile.to_csv("titanicsubmission.csv", index=False)
+submitFile.to_csv("titanicsubmission.csv", index = False)
 {{< /highlight  >}}
 
-When submitting this file to kaggle for submission, the test error rate equals **0.77512**.
+When submitting this file to kaggle for submission, the test accuracy equals **80.861%**!!
