@@ -1,5 +1,5 @@
 +++
-date = "2017-06-29T18:06:57-05:00"
+date = "2017-06-29"
 description = "test"
 title = "Surviving the Titanic"
 draft = "False"
@@ -18,24 +18,24 @@ We want to be able to classify any individual passenger as 1='Survived' or 0='No
 
 As always, Let's start be bringing in our favorite libraries required for data wrangling & analysis. We need `pandas` and `numpy` for wrangling and processing, `seaborn` & `matplotlib` for plotting, & `sklearn` for analytics.
 
-{{< highlight python >}}
-
+{{< highlight python "style=monokai">}}
+# data wrangling and exploration
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-# plotting options
 %matplotlib inline
 sns.set_style('whitegrid')
 
-# for model tuning & fitting
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.model_selection import GridSearchCV
+# data processing
+from sklearn.preprocessing import Imputer
 
+# for model tuning & fitting
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import GridSearchCV
 {{< /highlight >}}
 
-We are going to use the `GridSearchCV` function to optimize a our `GradientBoostingClassifier`. By estimating model accuracy over a grid of possible model parameters, we can select the best choice from amongst a series of gradient boosted classifiers.
+We are going to use the `GridSearchCV` function to optimize a our `RandomForestClassifier`. By estimating model accuracy over a grid of possible model parameters & data partitions, we can optimize our hyper-parameter selection.
 
 <hr>
 ## Import Data
@@ -61,8 +61,7 @@ train0.info()
 {{< /highlight  >}}
 
 
-```
-<class 'pandas.core.frame.DataFrame'>
+{{< highlight console >}}
 RangeIndex: 891 entries, 0 to 890
 Data columns (total 12 columns):
 PassengerId    891 non-null int64
@@ -79,11 +78,13 @@ Cabin          204 non-null object
 Embarked       889 non-null object
 dtypes: float64(2), int64(5), object(5)
 memory usage: 83.6+ KB
-```
+{{< /highlight  >}}
 
-We have missing data in Age, Cabin & Embarked. Also, we'll need to convert each of of our character variables to factors before modeling fitting with `sklearn`.
+We have missing data in Age, Cabin & Embarked. We should impute missing values for these observations in a way that won't impact the results but will allow us to leverage the information from the other features present in those observations.  
 
-After reviewing the variable descriptions, it seems like the `Ticket` & `Name` variables may not be very useful. Other kernels on kaggle seem to suggest that we can extract some useful information from name by taking the title out of the names. A 'title' variable would probably get's it's value from being proxy for sex and social class.
+Furthermore, if we see value in retaining our non-numeric features, then we'll need to transform these into dummy variables.
+
+After reviewing the variable descriptions, it seems like the `Ticket`, `Name` & `Cabin` variables may not be very useful in their current form. Let's aim to extract some useful information from these features. We can extract the title and cabin group information from these variables.
 
 **But**, Let's explore some of our other features before extracting new features. Below are some basic plots to explore the relationships between gender, ticket class, port of embarktion, age, & fare against survival rate.
 
@@ -107,9 +108,9 @@ alldata = pd.concat(datalist)
 alldata.shape
 {{< /highlight  >}}
 
-```
+{{< highlight console >}}
 (1309, 12)
-```
+{{< /highlight  >}}
 
 We can utilize the `str.extract` functionality from the `pandas` library to extract the first occurrence of a regular expression pattern. This reduces the time needed to manually inspect and extract each title from the `Name` feature.
 
@@ -118,7 +119,7 @@ alldata['title'] = alldata.Name.str.extract(' ([A-Za-z]+)\.', expand=False)
 alldata.groupby('title').size()
 {{< /highlight  >}}
 
-```
+{{< highlight console >}}
 title
 Capt          1
 Col           4
@@ -139,44 +140,69 @@ Ms            2
 Rev           8
 Sir           1
 dtype: int64
-```
+{{< /highlight  >}}
 
 After extracting our *titles*, let's 'bin' the less common titles into a *Rare* category. Then, let's use the seaborn package to see if our new feature may have some value in modeling.
 
 {{< highlight python >}}
-
 alldata['title'] = alldata['title'].replace(['Mme','Lady','Countess','Capt','Col'\
 ,'Don','Dr','Major','Rev','Sir','Jonkheer','Dona'],'Rare')
-
-plotthis = alldata1[~alldata1.Survived.isnull()]
-plot = sns.barplot(x="title",y="Survived",data=plotthis);
-plt.xlabel('Passenger Title')
-plt.ylabel('Mean Survival Rate')
-
 {{< /highlight  >}}
-
 
 ![](/img/titanicbarplot3.svg)
 
 We can see significant differences in the survival rate amongst our new feature. This plot suggests that title may provide some value as we craft our models.
 
-Finally, let's transform our character features into factors for the model fitting process & change the null values.
+we can extract group information from `Cabin`.
 
 {{< highlight python >}}
-
-# change to factors
-alldata1['title'] = alldata1['title'].map({"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5})
-alldata1['Sex'] = alldata1['Sex'].map({"male": 1, "Female": 2})
-alldata1["Embarked"] = alldata1['Embarked'].map({"S": 1, "C": 2, "Q": 3})
-
-# change missing values to 0
-alldata1['title'] = alldata1['title'].fillna(0)
-alldata1['Sex'] = alldata1['Sex'].fillna(0)
-alldata1['Embarked'] = alldata1['Embarked'].fillna(0)
-alldata1['Age'] = alldata1['Age'].fillna(0)
-alldata1['Fare'] = alldata1['Fare'].fillna(0)
-
+alldata0.groupby('CabinGroup').size()
 {{< /highlight  >}}
+
+{{< highlight console >}}
+CabinGroup
+A    22
+B    65
+C    94
+D    46
+E    41
+F    21
+G     5
+T     1
+dtype: int64
+{{< /highlight  >}}
+
+
+Finally, let's transform our drop our old features and transform our new features into binary dummy variables. This is important to represent our data in the most accurate way possible. While we could transform these features to integers representing each level, this would imply that there is some ordinal aspect to these features. It is important to represent our data in the most accurate way possible.  
+
+{{< highlight python >}}
+alldata1 = alldata0.drop(["Ticket", "Name", "Cabin"], 1, )
+alldata2 = pd.get_dummies(alldata1, dummy_na = True)
+alldata2.head().shape
+{{< /highlight  >}}
+
+as we can see, we have expanded the dimensionality of our data very quickly with this one call to `get_dummies`.
+
+{{< highlight console >}}
+(5, 31)
+{{< /highlight  >}}
+
+Finally, we can address our missing value problem identified from our first looks at the raw data. `Age` and `Fare` have missing values that need to be addressed.
+
+{{< highlight python >}}
+alldata2['Survived'] = alldata2['Survived'].fillna(-1) # keep Imputer from altering response data
+fill_NaN = Imputer(missing_values = np.nan, strategy = 'median', axis=1)
+alldata3 = pd.DataFrame(fill_NaN.fit_transform(alldata2))
+alldata3.columns = alldata2.columns
+alldata3.index = alldata2.index
+{{< /highlight >}}
+
+Let's check to make sure that our imputation has not fundamentally altered our distribution for age as this could increase the bias in our results.
+
+
+<img align="left" src="/img/age_before_impute.svg" width="50%" height="40%"/>
+<img align="right" src="/img/age_after_impute.svg" width="50%" height="40%"/>
+ .
 
 <hr>
 ## Model Tuning
@@ -185,8 +211,8 @@ Now that we are through the wrangling, exploration and feature engineering phase
 
 {{< highlight python >}}
 # split test and train
-train1 = alldata1[~alldata1.Survived.isnull()].drop("PassengerId",1)
-test1 = alldata1[alldata1.Survived.isnull()]
+train1 = alldata3[alldata3.Survived != -1].drop("PassengerId",1)
+test1 = alldata3[alldata3.Survived == -1]
 
 # split features and response
 X = train1.drop("Survived",1)
@@ -199,35 +225,31 @@ testX = test1.drop(['Survived','PassengerId'],1)
 We want to search for the best model fit over a range of parameters. When performing a grid search for optimal parameter values, we should be aware that this procedure is very computationally intensive. In essence, we are fitting the same type of model many times over a 3-fold cross-validation for each combination of parameters and selecting parameters with that provide the best accuracy score.
 
 {{< highlight python >}}
+param_grid = {'n_estimators':range(50,501,50),
+              "max_depth": [3, 4, 5],
+              "max_features": ["sqrt"],
+              "min_samples_split": [2, 5, 10],
+              "min_samples_leaf": [2, 5, 10],
+              "bootstrap": [True, False],
+              "criterion": ["gini", "entropy"]}
 
-params = {'n_estimators':range(300,1201,100),
-         'learning_rate':[0.1,0.05,0.02],
-         'max_depth':[2,3],
-         'max_features':[3,4,5]}
-
-grdsearch = GridSearchCV(estimator=GradientBoostingClassifier(),
-                         param_grid=params,
-                         scoring='accuracy',
-                         iid=False,
-                         cv=3)
+grdsearch = GridSearchCV(estimator = RandomForestClassifier(),
+                         param_grid = param_grid,
+                         scoring = 'accuracy',
+                         iid = False,
+                         cv = 3)
 
 searchresults = grdsearch.fit(X,Y)
-
 {{< /highlight  >}}
 
 once the grid search is complete, we can inspect the attributes of our fit object `searchresults` for the optimal parameters for prediction.
 
-{{< highlight python >}}
-print("Best score acheived is:",searchresults.best_score_)
-print("Best grid parameters for this score are:")
-print(searchresults.best_params_)
-{{< /highlight  >}}
 
-```
+{{highlight console}}
 Best score acheived is: 0.842873176207
 Best grid parameters for this score are:
 {'learning_rate': 0.1, 'max_depth': 3, 'max_features': 3, 'n_estimators': 300}
-```
+{{/ highlight }}
 
 Since we are utilizing 3-fold cross-validation, we can avoid selecting the best model based on the training error. This is a useful measure to avoid over-fitting.
 
